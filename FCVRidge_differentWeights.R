@@ -21,7 +21,7 @@ sigma0 = 1
 
 # Defining the simulation experiment #### 
 
-noSim <- 1000
+noSim <- 100
 n <- 100
 #Defining the ridge Leave-one-out crossvalidation 
 
@@ -76,7 +76,7 @@ for (i in 1:noSim){
   Y <- X%*%beta0 + rnorm(n,mean=0,sd=sigma0)
 
   # Defines a random focus paramter
-  focusX <- c(1,runif(p,min=-2,max=-1))
+  focusX <- c(1,runif(p,min=0.5,max=1)*sample(c(-1,1),p,replace=TRUE))
   
   ## CV stuff
   thisCVRun <- LOOCVRidge(X,Y,focusX=focusX)

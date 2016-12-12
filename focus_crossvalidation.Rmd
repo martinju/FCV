@@ -40,8 +40,8 @@ VecFun <- Vectorize(PredictionErrorFocus)
 z <- outer(x1,x2,VecFun)+10^-10
 #hist(z)
 #hist(log(z))
-
-image(x1,x2,log(z),col=heat.colors(99),breaks=quantile(log(z),
+library(fields)
+image.plot(x1,x2,log(z),col=heat.colors(99),breaks=quantile(log(z),
   probs = exp(seq(log(0.01), log(0.9), length.out = 100))),
   main = expression(paste("Contours for log ", lambda[x[0]])),
   xlim = c(-1.1,1.1),ylim = c(-1.1,1.1),axes=TRUE)
